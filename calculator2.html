@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Second calculator</title>
+
+	<style type="text/css">
+
+		.all{
+			width: 700px;
+			height: 700px;
+			background-image: url(./image_files/num2.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+            
+            margin:50px auto;
+            padding: 20px;
+            border-radius: 50px;
+            position: relative;
+        
+
+		}
+		
+		table{
+		    width: 700px;
+			border-spacing: 20px;
+			 margin:auto;
+
+		}
+
+		tr,td{
+           padding: 20px;
+           background-color:#cc66ff ;
+         
+           color:white;
+           border:1px solid white;
+           font-size: 20px;
+           text-align: center;
+           border-radius: 10px;
+          
+		}
+
+		input{
+			float: right;
+			padding: 20px;
+			width: 50%;
+            outline: none;
+            border:none;
+            border-radius: 30px;
+            font-size: 30px;
+            text-align: right;
+            margin-right: 20px;
+            margin-bottom:50px;
+		}
+       
+    button{
+    	width: 300px;
+    	padding: 30px;
+      position: absolute;
+        left: 230px;
+        bottom:10px;
+        background-color:#6699ff;
+        outline:none;
+      /*  border:none;*/
+        border-radius: 30px;
+        font-size: 30px;
+     
+    }
+
+    button:hover{
+    	background-color: #002266;
+    	color:white;
+    }
+
+    td:hover{
+    	background-color:#420066;
+    	color:white;
+    }
+
+   td#equal{
+   	background-color:#33cc33;
+   }
+
+   td#equal:hover{
+   	background-color:#145214;
+
+   }
+
+	</style>
+</head>
+<body>
+
+<div class="all">
+<input type="text"  name="">
+
+	<table>
+		<tr>
+			<td onclick="number(7)">7</td>
+			<td onclick="number(8)">8</td>
+			<td onclick="number(9)">9</td>
+			<td onclick="bolme('/')">/</td>
+		</tr>
+
+			<tr>
+			<td onclick="number(4)">4</td>
+			<td onclick="number(5)">5</td>
+			<td onclick="number(6)">6</td>
+			<td onclick="vurma('*')">*</td>
+		</tr>
+
+				<tr>
+			<td onclick="number(1)">1</td>
+			<td onclick="number(2)">2</td>
+			<td onclick="number(3)">3</td>
+			<td onclick="cixma('-')">-</td>
+		</tr>
+
+				<tr>
+			<td onclick="number(0)">0</td>
+			<td onclick="noqte('.')">.</td>
+			<td id="equal" onclick="beraber()">=</td>
+			<td onclick="topla('+')">+</td>
+		</tr>
+
+				<tr>
+			<td onclick="memory_delete()">MC</td>
+			<td onclick="show()">MR</td>
+			<td onclick="plus()">M+</td>
+			<td onclick="minus()">M-</td>
+		</tr>
+
+		
+
+	</table>
+
+<button onclick="smth_delete()">C</button>
+
+</div>
+
+
+<script type="text/javascript">
+
+	let n=true;
+	let bin=true;
+    function noqte(a){
+      if (n==true) {
+      	let b=document.getElementsByTagName('input')[0] .value
+
+      	if (b[b.length-1]>=0) {
+            let b=document.getElementsByTagName('input')[0] .value+=a
+           n=false;  
+      	}
+      } 
+    }
+
+     
+     
+	function number(a){
+		bin=true
+         let b=document.getElementsByTagName('input')[0] .value+=a
+        
+	}
+
+	function bolme(a){
+      n=true;
+
+        if (bin==true) {
+      	let b=document.getElementsByTagName('input')[0] .value
+
+      	if (b[b.length-1]>=0) {
+            let b=document.getElementsByTagName('input')[0] .value+=a
+           bin=false; 
+      	}
+      }
+      
+	}
+
+	function cixma(a){
+            n=true;
+             if (bin==true) {
+      	let b=document.getElementsByTagName('input')[0] .value
+
+      	if (b[b.length-1]>=0) {
+            let b=document.getElementsByTagName('input')[0] .value+=a
+           bin=false;  
+      	}
+      }
+       
+	}
+
+	function topla(a){
+         n=true
+             if (bin==true) {
+      	let b=document.getElementsByTagName('input')[0] .value
+
+      	if (b[b.length-1]>=0) {
+            let b=document.getElementsByTagName('input')[0] .value+=a
+           bin=false; 
+      	}
+      }
+	}
+
+	function vurma(a){
+		n=true;
+                 if (bin==true) {
+      	let b=document.getElementsByTagName('input')[0] .value
+
+      	if (b[b.length-1]>=0) {
+            let b=document.getElementsByTagName('input')[0] .value+=a
+           bin=false; 
+      	}
+      }
+        
+	}
+
+
+    function beraber(){
+       let b=document.getElementsByTagName('input')[0] .value;
+       document.getElementsByTagName('input')[0] .value=eval(b);
+	}
+   
+
+       let memory=0
+	function memory_delete(){
+		memory=0
+     console.log(memory)
+	}
+
+	function plus(){
+		let c=document.getElementsByTagName('input')[0] .value
+		memory=memory+(+c)
+		console.log(memory)
+	}
+
+    function minus(){
+		let c=document.getElementsByTagName('input')[0] .value
+		memory=memory-(+c)
+		console.log(memory)
+	}
+
+	function show(){
+		document.getElementsByTagName('input')[0] .value=memory;
+	}
+   
+   
+   function smth_delete(){
+     document.getElementsByTagName('input')[0] .value=""
+   }
+
+
+
+</script>
+</body>
+</html>
